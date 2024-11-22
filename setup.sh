@@ -22,6 +22,7 @@ echo "Starting the scraper application..."
 cd ./scraper
 python -m venv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 python run.py &
 SCRAPER_PID=$!
@@ -31,6 +32,7 @@ echo "Starting the server application..."
 cd ../server
 python -m venv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 python run.py &
 if [ $? -ne 0 ]; then

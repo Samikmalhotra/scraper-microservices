@@ -1,0 +1,42 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+*.env
+
+# Flask cache and logs
+instance/
+*.log
+*.bak
+
+# Virtual environment
+venv/
+env/
+.virtualenv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# IDE/editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Other
+.DS_Store
+Thumbs.db
