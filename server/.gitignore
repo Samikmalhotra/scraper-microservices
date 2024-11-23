@@ -1,6 +1,8 @@
 # Byte-compiled files
 __pycache__/
 *.py[cod]
+app/__pycache__/
+app/__pycache__
 
 # Environment variables and secrets
 .env

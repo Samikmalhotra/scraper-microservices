@@ -61,7 +61,7 @@ const Sidebar = () => {
       </List>
       <Divider />
       <List>
-        <ListItem disablePadding onClick={() => navigate("/history")}>
+        <ListItem disablePadding onClick={() => window.open("https://github.com/Samikmalhotra/scraper-microservices/blob/main/README.md", '_blank')}>
           <ListItemButton>
             <ListItemIcon>
               <ArticleIcon />
@@ -70,7 +70,7 @@ const Sidebar = () => {
           </ListItemButton>
         </ListItem>
       </List>
-      <ListItem disablePadding onClick={() => navigate("/history")}>
+      <ListItem disablePadding onClick={() => window.open('https://github.com/Samikmalhotra/scraper-microservices', '_blank')}>
         <ListItemButton>
           <ListItemIcon>
             <GitHubIcon />

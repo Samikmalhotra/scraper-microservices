@@ -19,7 +19,7 @@ async function fetchData(
       entity_name: name,
     };
     const response = await axios.post(
-      "http://localhost:5000/get_data_by_entity_name",
+      "http://localhost:5000/scrape_data_by_entity_name",
       body
     );
     setData(response.data);

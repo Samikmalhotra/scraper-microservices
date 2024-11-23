@@ -19,7 +19,7 @@ bp = Blueprint('routes', __name__)
 def home():
     return jsonify("Scraper service is running!")
 
-@bp.route('/get_data_by_entity_name', methods=['POST'])
+@bp.route('/scrape_data_by_entity_name', methods=['POST'])
 def get_result_by_entity_name():
     entity_name = request.json.get('entity_name')
     try:
@@ -27,7 +27,7 @@ def get_result_by_entity_name():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@bp.route('/get_data_by_document_number', methods=['POST'])
+@bp.route('/scrape_data_by_document_number', methods=['POST'])
 def get_result_by_document_number():
     document_number = request.json.get('document_number')
     try:
