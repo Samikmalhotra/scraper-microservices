@@ -73,7 +73,9 @@ def get_result_by_document_number_controller(document_number: str):
                 raise Exception("Search result not found")
         except NoSuchElementException:
             raise Exception("Search result not found and validation error not displayed.")
-    except Exception:
+    except Exception as e:
+        print("An error occured while scraping the document number: " + document_number)
+        print(e)
         raise Exception("An error occured while scraping the document number: " + document_number)
     finally:
         driver.quit()

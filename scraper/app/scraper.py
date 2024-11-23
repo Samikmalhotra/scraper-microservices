@@ -110,14 +110,15 @@ def handle_registered_agent_section(section: WebElement):
 def handle_officer_director_detail_section(section: WebElement):
     try:
         officer_sections = section.find_elements(By.XPATH, "//span[contains(text(), 'Title')]")
+        names = extract_names(section.text)
     except NoSuchElementException as e:
         print(f"Error: Officer sections not found. {e}")
     data_dict = {}
     officers = []
-    for officer_section in officer_sections:
+    for index,officer_section in enumerate(officer_sections):
         try:
             title = officer_section.text.split()[-1]
-            name = officer_section.find_element(By.XPATH, "preceding-sibling::br").text
+            name = names[index] if index < len(names) else "None"
             address_div = officer_section.find_element(By.XPATH, "following-sibling::span//div")
             address = " ".join(address_div.text.strip().split("\n"))
             
@@ -132,6 +133,20 @@ def handle_officer_director_detail_section(section: WebElement):
             print(f"Unexpected error while processing officer: {e}")
     data_dict["officers"] = officers
     return data_dict
+
+def extract_names(data):
+    lines = data.split('\n')
+    names = []
+    i = 0
+    while i < len(lines):
+        if lines[i].strip().startswith("Title"):
+            j = i + 1
+            while j < len(lines) and not lines[j].strip():
+                j += 1
+            if j < len(lines):
+                names.append(lines[j].strip())
+        i += 1
+    return names
 
 def handle_document_images_section(section: WebElement):   
     data_dict= {}
