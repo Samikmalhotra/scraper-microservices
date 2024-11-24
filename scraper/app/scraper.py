@@ -26,7 +26,6 @@ def handle_single_search_result(single_search_result: WebElement) -> list[dict]:
     data_dict.update(get_corporation_name(single_search_result))
     data_dict.update(get_detail_sections(single_search_result))
     result.append(data_dict)
-    # print(result)
     return result
 
 def get_filing_information(single_search_result: WebElement):
@@ -67,7 +66,7 @@ def handle_sections(section_name: str, section: WebElement):
         data_dict.update(handle_mailing_address_section(section))
     elif(section_name == "Registered Agent Name & Address"):
         data_dict.update(handle_registered_agent_section(section))
-    elif(section_name == "Officer/Director Detail"):
+    elif(section_name == "Officer/Director Detail" or section_name == "Authorized Person(s) Detail"):
         data_dict.update(handle_officer_director_detail_section(section))
     elif(section_name == "Document Images"):
         data_dict.update(handle_document_images_section(section))
@@ -165,6 +164,7 @@ def handle_document_images_section(section: WebElement):
         print(f"Error: Elements not found. {e}")
     except Exception as e:
         print(f"Unexpected error while processing document images: {e}")
+        raise e
     
     data_dict["document_images"] = document_images
     return data_dict
