@@ -164,7 +164,6 @@ def handle_document_images_section(section: WebElement):
         print(f"Error: Elements not found. {e}")
     except Exception as e:
         print(f"Unexpected error while processing document images: {e}")
-        raise e
     
     data_dict["document_images"] = document_images
     return data_dict

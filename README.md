@@ -4,7 +4,7 @@ A simple microservices app which processes inter service communication using red
 ## Prerequisites
 -   Python 3.8 or later
 -   Node.js and npm (for React client)
--   Redis
+-   Google Chrome
 -   Docker 
 
 ## Features
@@ -60,6 +60,9 @@ cd  ./client
 npm  install
 npm  run  dev
 ```
+
+> Open the browser and navigate to *http://localhost:5173* to access the client.
+
 
 # API Documentation
 
